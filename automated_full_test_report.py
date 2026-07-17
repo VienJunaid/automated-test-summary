@@ -17,8 +17,8 @@ full_files = [
     #"gui-coverage-report.txt",
     "mux_ut_output.txt",
     "mux-coverage-report.txt",
-    #"coverage-report.txt",
-    #"ut_output.txt",
+    "coverage-report.txt",
+    "ut_output.txt",
     "iot_integration_report.txt"
 ]
 
@@ -204,7 +204,7 @@ def mux_test_report(directory):
 # Firmware Test Report 
 # Files: coverage-report.txt & ut_output.txt
 # NOTES: Need to fix how they list all the files listed 
-# THIS IS STILL NOT FINISHED 
+# THIS IS STILL NOT FINISHED, need to add more past_text lines for the function 
 def firmware_unit_test(directory):
     # --- ut_output.txt ---
     filepath = os.path.join(directory, "ut_output.txt")
