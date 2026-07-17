@@ -19,7 +19,7 @@ full_files = [
     "mux-coverage-report.txt",
     #"coverage-report.txt",
     #"ut_output.txt",
-    #"iot_integration_report.txt"
+    "iot_integration_report.txt"
 ]
 
 
@@ -87,6 +87,9 @@ def main():
     rest_result = rest_api_test(directory)
     print_report_result(rest_result["rest_api"]["filename"], rest_result["rest_api"], "rest_api has failing test cases")
 
+    # IOT Test Report 
+    iot_result = iot_test_report(directory)
+    print_report_result("iot_integration_report", iot_result["iot_integration_report"], "iot_integration_report has failing test cases")
 
     
 
@@ -278,8 +281,21 @@ def rest_api_test(directory):
 
 # IOT Interface Test Report
 # Files: iot_integration_report.txt
-def iot_test_report():
-    return None
+def iot_test_report(directory):
+    filepath = os.path.join(directory, "iot_integration_report.txt")
+    
+    passed = False
+    proof_line = None 
+    line_number = None 
+
+    with open(filepath, "r") as f:
+        for i, line in enumerate(f, start=1):
+            if "test result: ok." in line and "; 0 failed;" in line:
+                passed = True 
+                proof_line = line.strip()
+                line_number = i 
+                break 
+    return {"iot_integration_report": {"status": passed, "proof": proof_line, "line": line_number}}
 
 
 # Helper function for test reports 
