@@ -189,8 +189,49 @@ def mux_test_report(directory):
 
 # Firmware Test Report 
 # Files: coverage-report.txt & ut_output.txt
-def firmware_unit_test():
-    return None
+def firmware_unit_test(directory):
+     # --- ut_output.txt ---
+    filepath = os.path.join(directory, "ut_output.txt")
+
+    passed = False
+    proof_line = None
+    line_number = None
+
+    with open(filepath, "r") as f:
+        for i, line in enumerate(f, start=1):
+            if "OK (" in line:
+                passed = True
+                match = re.search(r"OK \((.+)\)", line)
+                if match:
+                    proof_line = "test result: ok. " + match.group(1)
+                line_number = i
+                break
+
+    # --- coverage-report.txt ---
+    cov_filepath = os.path.join(directory, "coverage-report.txt")
+
+    top100_files = []
+    most_changed_files = []
+    current_section = None
+
+    with open(cov_filepath, "r") as f:
+        for line in f:
+            stripped = line.strip()
+            if "List of top 100 files that need exception reports" in stripped:
+                current_section = "top100"
+            elif "Most changed files that need exception report" in stripped:
+                current_section = "most_changed"
+            elif stripped == "":
+                current_section = None
+            elif current_section == "top100":
+                top100_files.append(stripped)
+            elif current_section == "most_changed":
+                most_changed_files.append(stripped)
+
+    return {
+        "ut_output": {"status": passed, "proof": proof_line, "line": line_number},
+        "coverage": {"top100_files": top100_files, "most_changed_files": most_changed_files}
+    }
 
 # Rest API Test Report
 # Files: report-YYYY-MM-DD.txt
@@ -221,6 +262,16 @@ def print_coverage_result(report_name, result):
         print(f"Code coverage Passed, {result['percentage']}% is >= 50%")
     else:
         print(f"Code coverage Failed, {result['percentage']}% is < 50%")
+
+# Helper function for the firmware coverage:
+def print_firmware_coverage_result(result):
+    print("\ncoverage-report:")
+    print("List of top 100 files that need to be included in the exception report:")
+    for f in result["top100_files"]:
+        print(f)
+    print("\nMost changed files that need to be included in the exception report:")
+    for f in result["most_changed_files"]:
+        print(f)
 
 
 if __name__ == "__main__":
