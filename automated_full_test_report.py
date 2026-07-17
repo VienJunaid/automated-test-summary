@@ -252,6 +252,7 @@ def firmware_unit_test(directory):
 
 # Rest API Test Report
 # Files: report-YYYY-MM-DD.txt
+# Ask JIM if we should implement a way for the text to give us back the very value we need. 
 def rest_api_test(directory):
     files = glob.glob(os.path.join(directory, "report-*.txt"))
     if not files:
@@ -273,7 +274,7 @@ def rest_api_test(directory):
                 proof_line = match.group(0)
                 if failures == 0:
                     passed = True 
-    return {"rest_api": {"status": passed, "proof": proof_line, "line": None, "filename": filename}}
+    return {"rest_api": {"status": passed, "proof": proof_line, "line": None, "filename": "report-YYYY-MM-DD"}}
 
 # IOT Interface Test Report
 # Files: iot_integration_report.txt
