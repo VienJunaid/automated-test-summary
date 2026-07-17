@@ -9,7 +9,7 @@ import os
 import re
 
 # Path to where all the files are located
-directory="."
+directory="test_files"
 
 # comment out based on what you are testing
 full_files = [
@@ -18,7 +18,7 @@ full_files = [
     "mux_ut_output.txt",
     "mux-coverage-report.txt",
     #"coverage-report.txt",
-    #"ut-output.txt",
+    #"ut_output.txt",
     #"iot_integration_report.txt"
 ]
 
@@ -77,6 +77,17 @@ def main():
     mux_result = mux_test_report(directory)
     print_report_result("mux_ut_output", mux_result["mux_ut_output"], "mux_ut_output has failing test cases")
     print_coverage_result("mux_coverage", mux_result["mux_coverage"])
+
+    # Firwmware Test Reports 
+    firmware_result = firmware_unit_test(directory)
+    print_report_result("ut_output", firmware_result["ut_output"], "ut_output has failing test cases")
+    print_firmware_coverage_result(firmware_result["coverage"])
+
+    # REST API Test Report 
+    rest_result = rest_api_test(directory)
+    print_report_result(rest_result["rest_api"]["filename"], rest_result["rest_api"], "rest_api has failing test cases")
+
+
     
 
 
@@ -189,8 +200,10 @@ def mux_test_report(directory):
 
 # Firmware Test Report 
 # Files: coverage-report.txt & ut_output.txt
+# NOTES: Need to fix how they list all the files listed 
+# THIS IS STILL NOT FINISHED 
 def firmware_unit_test(directory):
-     # --- ut_output.txt ---
+    # --- ut_output.txt ---
     filepath = os.path.join(directory, "ut_output.txt")
 
     passed = False
@@ -217,11 +230,15 @@ def firmware_unit_test(directory):
     with open(cov_filepath, "r") as f:
         for line in f:
             stripped = line.strip()
-            if "List of top 100 files that need exception reports" in stripped:
+            if "Files with greater than 100 SLOC Coverage:" in stripped:
                 current_section = "top100"
-            elif "Most changed files that need exception report" in stripped:
+            elif "Coverage in files sorted by most changed" in stripped:
                 current_section = "most_changed"
             elif stripped == "":
+                current_section = None
+            elif stripped.startswith("="):
+                pass 
+            elif stripped.startswith("Total LOC"):
                 current_section = None
             elif current_section == "top100":
                 top100_files.append(stripped)
@@ -235,8 +252,28 @@ def firmware_unit_test(directory):
 
 # Rest API Test Report
 # Files: report-YYYY-MM-DD.txt
-def rest_api_test():
-    return None
+def rest_api_test(directory):
+    files = glob.glob(os.path.join(directory, "report-*.txt"))
+    if not files:
+        return {"rest_api": {"status": False, "proof": None, "line": None, "filename": "report-YYYY-MM-DD"}}
+
+    filepath = files[0]
+    filename = os.path.basename(filepath).replace(".txt", "")
+
+    passed = False
+    proof_line = None 
+
+    with open(filepath, "r") as f:
+        lines = f.readlines()
+        if lines:
+            last_line = lines[-1].strip()
+            match = re.search(r"Total Failures: (\d+), Total Passes: (\d+)", last_line)
+            if match:
+                failures = int(match.group(1))
+                proof_line = match.group(0)
+                if failures == 0:
+                    passed = True 
+    return {"rest_api": {"status": passed, "proof": proof_line, "line": None, "filename": filename}}
 
 # IOT Interface Test Report
 # Files: iot_integration_report.txt
@@ -252,7 +289,7 @@ def print_report_result(report_name, result, fail_message):
     if result["status"]:
         print("All test Passed")
     else:
-        print(f"There is a test failure, {fail_message}")
+        print(f"There is a test Failure, {fail_message}")
 
 # Helper function for percentage for code coverage reports 
 def print_coverage_result(report_name, result):
@@ -272,6 +309,7 @@ def print_firmware_coverage_result(result):
     print("\nMost changed files that need to be included in the exception report:")
     for f in result["most_changed_files"]:
         print(f)
+
 
 
 if __name__ == "__main__":

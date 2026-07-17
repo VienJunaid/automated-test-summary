@@ -1,0 +1,338 @@
+Error while trying to load a compilation database:
+Could not auto-detect compilation database for file "../Core/App/USB/vcp.cpp"
+No compilation database found in /workspace/source/Debug/../Core/App/USB or any parent directory
+fixed-compilation-database: Error while opening fixed database: No such file or directory
+json-compilation-database: Error while opening JSON database: No such file or directory
+Running without flags.
+[1/109] Processing file /workspace/source/Debug/../Core/App/USB/vcp.cpp.
+59404 warnings and 1 error generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/vcp.cpp.
+[2/109] Processing file /workspace/source/Debug/../Core/App/USB/mvep.cpp.
+59404 warnings and 1 error generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/mvep.cpp.
+[3/109] Processing file /workspace/source/Debug/../Core/App/USB/Registers/ln2_register.cpp.
+94014 warnings and 2 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Registers/ln2_register.cpp.
+[4/109] Processing file /workspace/source/Debug/../Core/App/USB/Registers/temperature_register.cpp.
+128543 warnings and 3 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Registers/temperature_register.cpp.
+[5/109] Processing file /workspace/source/Debug/../Core/App/USB/Registers/telemetry_register.cpp.
+191896 warnings and 4 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Registers/telemetry_register.cpp.
+[6/109] Processing file /workspace/source/Debug/../Core/App/USB/Registers/alarms_register.cpp.
+226336 warnings and 5 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Registers/alarms_register.cpp.
+[7/109] Processing file /workspace/source/Debug/../Core/App/USB/Registers/get_logs_register.cpp.
+278677 warnings and 6 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Registers/get_logs_register.cpp.
+[8/109] Processing file /workspace/source/Debug/../Core/App/USB/Registers/fill_time.cpp.
+330872 warnings and 7 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Registers/fill_time.cpp.
+[9/109] Processing file /workspace/source/Debug/../Core/App/USB/Registers/fill_control_register.cpp.
+365250 warnings and 8 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Registers/fill_control_register.cpp.
+[10/109] Processing file /workspace/source/Debug/../Core/App/USB/Registers/sample_vision_register.cpp.
+399206 warnings and 9 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Registers/sample_vision_register.cpp.
+[11/109] Processing file /workspace/source/Debug/../Core/App/USB/Registers/lid_register.cpp.
+402001 warnings and 10 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Registers/lid_register.cpp.
+[12/109] Processing file /workspace/source/Debug/../Core/App/USB/Registers/FillStateRegister.cpp.
+452156 warnings and 11 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Registers/FillStateRegister.cpp.
+[13/109] Processing file /workspace/source/Debug/../Core/App/USB/Registers/RTCRegister.cpp.
+452406 warnings and 12 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Registers/RTCRegister.cpp.
+[14/109] Processing file /workspace/source/Debug/../Core/App/USB/Registers/battery.cpp.
+486207 warnings and 13 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Registers/battery.cpp.
+[15/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/FillCommand.cpp.
+536555 warnings and 14 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/FillCommand.cpp.
+[16/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/AlarmCommand.cpp.
+588604 warnings and 15 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/AlarmCommand.cpp.
+[17/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/ClearLogs.cpp.
+638949 warnings and 16 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/ClearLogs.cpp.
+[18/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/TurnTrayCalibrationCommand.cpp.
+668426 warnings and 17 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/TurnTrayCalibrationCommand.cpp.
+[19/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/LidLockCommand.cpp.
+701627 warnings and 18 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/LidLockCommand.cpp.
+[20/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/SampleVisionSetting.cpp.
+704390 warnings and 18 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/SampleVisionSetting.cpp.
+[21/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/AutoFillEnabled.cpp.
+707711 warnings and 19 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/AutoFillEnabled.cpp.
+[22/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/ScheduledFillEnabled.cpp.
+711059 warnings and 20 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/ScheduledFillEnabled.cpp.
+[23/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/TempAEnabled.cpp.
+714380 warnings and 21 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/TempAEnabled.cpp.
+[24/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/TempBEnabled.cpp.
+717701 warnings and 22 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/TempBEnabled.cpp.
+[25/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/HotGasEnabled.cpp.
+721022 warnings and 23 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/HotGasEnabled.cpp.
+[26/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/StuckValveEnabled.cpp.
+724343 warnings and 24 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/StuckValveEnabled.cpp.
+[27/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/LiquidUsageDisplayEnabled.cpp.
+727664 warnings and 25 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/LiquidUsageDisplayEnabled.cpp.
+[28/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/LiquidUsageAlarm.cpp.
+730985 warnings and 26 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/LiquidUsageAlarm.cpp.
+[29/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/LidSensorEnabled.cpp.
+734306 warnings and 27 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/LidSensorEnabled.cpp.
+[30/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/AutoFogClear.cpp.
+737627 warnings and 28 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/AutoFogClear.cpp.
+[31/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/SetHighTempA.cpp.
+771358 warnings and 29 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/SetHighTempA.cpp.
+[32/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/SetHighTempB.cpp.
+805089 warnings and 30 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/SetHighTempB.cpp.
+[33/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/SetHighLn2Level.cpp.
+808411 warnings and 31 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/SetHighLn2Level.cpp.
+[34/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/SetHighLn2LevelAlarm.cpp.
+842142 warnings and 32 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/SetHighLn2LevelAlarm.cpp.
+[35/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/SetLowLn2Level.cpp.
+845464 warnings and 33 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/SetLowLn2Level.cpp.
+[36/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/SetLowLn2LevelAlarm.cpp.
+848786 warnings and 34 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/SetLowLn2LevelAlarm.cpp.
+[37/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/SetLevelOffset.cpp.
+869835 warnings and 35 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/SetLevelOffset.cpp.
+[38/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/SetInletTemp.cpp.
+873157 warnings and 36 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/SetInletTemp.cpp.
+[39/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/SetHotGasBypassMaxTime.cpp.
+876479 warnings and 37 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/SetHotGasBypassMaxTime.cpp.
+[40/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/SetWarmUpMaxTime.cpp.
+879801 warnings and 38 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/SetWarmUpMaxTime.cpp.
+[41/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/SetCoolDownMaxTime.cpp.
+883123 warnings and 39 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/SetCoolDownMaxTime.cpp.
+[42/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/SetMaxFillTime.cpp.
+886445 warnings and 40 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/SetMaxFillTime.cpp.
+[43/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/SetMaxFogClearTime.cpp.
+889767 warnings and 41 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/SetMaxFogClearTime.cpp.
+[44/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/SetSerialPortMode.cpp.
+893088 warnings and 42 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/SetSerialPortMode.cpp.
+[45/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/batteryCommand.cpp.
+926901 warnings and 43 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/batteryCommand.cpp.
+[46/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/baudRate.cpp.
+960630 warnings and 44 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/baudRate.cpp.
+[47/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/OfafSubPortNum.cpp.
+996114 warnings and 45 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/OfafSubPortNum.cpp.
+[48/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/ModbusId.cpp.
+999272 warnings and 46 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/ModbusId.cpp.
+[49/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/AsciiId.cpp.
+1002430 warnings and 47 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/AsciiId.cpp.
+[50/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/OfafFeed.cpp.
+1036159 warnings and 48 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/OfafFeed.cpp.
+[51/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/dfuCommand.cpp.
+1039091 warnings and 49 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/dfuCommand.cpp.
+[52/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/UnitsCommand.cpp.
+1072822 warnings and 50 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/UnitsCommand.cpp.
+[53/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/setDateTimeCommand.cpp.
+1075878 warnings and 51 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/setDateTimeCommand.cpp.
+[54/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/RequestFogClear.cpp.
+1126228 warnings and 52 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/RequestFogClear.cpp.
+[55/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/ClearDispSerNum.cpp.
+1160124 warnings and 53 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/ClearDispSerNum.cpp.
+[56/109] Processing file /workspace/source/Debug/../Core/App/USB/Commands/TestDiscreteOutputs.cpp.
+1193738 warnings and 54 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/USB/Commands/TestDiscreteOutputs.cpp.
+[57/109] Processing file /workspace/source/Debug/../Core/App/Serial/Protocols/OFAF/ofaf.cpp.
+1254808 warnings and 55 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Serial/Protocols/OFAF/ofaf.cpp.
+[58/109] Processing file /workspace/source/Debug/../Core/App/Serial/Protocols/OFAF/ofaf_buffer.cpp.
+1287782 warnings and 56 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Serial/Protocols/OFAF/ofaf_buffer.cpp.
+[59/109] Processing file /workspace/source/Debug/../Core/App/Serial/Protocols/OFAF/States/OFAFContext.cpp.
+1347435 warnings and 57 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Serial/Protocols/OFAF/States/OFAFContext.cpp.
+[60/109] Processing file /workspace/source/Debug/../Core/App/Serial/Protocols/OFAF/States/OFAFStates.cpp.
+1387397 warnings and 58 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Serial/Protocols/OFAF/States/OFAFStates.cpp.
+[61/109] Processing file /workspace/source/Debug/../Core/App/Serial/Protocols/OFAF/States/OFAFState.cpp.
+1427197 warnings and 59 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Serial/Protocols/OFAF/States/OFAFState.cpp.
+[62/109] Processing file /workspace/source/Debug/../Core/App/Serial/Protocols/OFAF/States/InitState.cpp.
+1467734 warnings and 60 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Serial/Protocols/OFAF/States/InitState.cpp.
+[63/109] Processing file /workspace/source/Debug/../Core/App/Serial/Protocols/OFAF/States/PollState.cpp.
+1528568 warnings and 61 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Serial/Protocols/OFAF/States/PollState.cpp.
+[64/109] Processing file /workspace/source/Debug/../Core/App/Serial/Protocols/OFAF/States/DetermineFillState.cpp.
+1585694 warnings and 62 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Serial/Protocols/OFAF/States/DetermineFillState.cpp.
+[65/109] Processing file /workspace/source/Debug/../Core/App/Serial/Protocols/OFAF/States/SequentialFillMode.cpp.
+1642819 warnings and 63 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Serial/Protocols/OFAF/States/SequentialFillMode.cpp.
+[66/109] Processing file /workspace/source/Debug/../Core/App/Serial/Protocols/OFAF/States/SimultaneousFillState.cpp.
+1699947 warnings and 64 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Serial/Protocols/OFAF/States/SimultaneousFillState.cpp.
+[67/109] Processing file /workspace/source/Debug/../Core/App/Serial/Protocols/OFAF/States/Controller.cpp.
+1741119 warnings and 65 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Serial/Protocols/OFAF/States/Controller.cpp.
+[68/109] Processing file /workspace/source/Debug/../Core/App/Serial/Protocols/Modbus/modbus.cpp.
+1781627 warnings and 66 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Serial/Protocols/Modbus/modbus.cpp.
+[69/109] Processing file /workspace/source/Debug/../Core/App/Serial/Protocols/Modbus/modbus_crc.cpp.
+1821729 warnings and 66 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Serial/Protocols/Modbus/modbus_crc.cpp.
+[70/109] Processing file /workspace/source/Debug/../Core/App/Serial/Protocols/Modbus/modbus_registers.cpp.
+1886885 warnings and 67 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Serial/Protocols/Modbus/modbus_registers.cpp.
+[71/109] Processing file /workspace/source/Debug/../Core/App/Serial/Protocols/ASCII/ascii.cpp.
+1970177 warnings and 68 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Serial/Protocols/ASCII/ascii.cpp.
+[72/109] Processing file /workspace/source/Debug/../Core/App/Serial/Protocols/ASCII/ascii_debug.cpp.
+2025548 warnings and 69 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Serial/Protocols/ASCII/ascii_debug.cpp.
+[73/109] Processing file /workspace/source/Debug/../Core/App/Serial/Protocols/ASCII/ascii_dbct.cpp.
+2080723 warnings and 70 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Serial/Protocols/ASCII/ascii_dbct.cpp.
+[74/109] Processing file /workspace/source/Debug/../Core/App/Serial/Protocols/ASCII/ascii_message_queue.cpp.
+2115981 warnings and 71 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Serial/Protocols/ASCII/ascii_message_queue.cpp.
+[75/109] Processing file /workspace/source/Debug/../Core/App/Serial/serial.cpp.
+2163229 warnings and 72 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Serial/serial.cpp.
+[76/109] Processing file /workspace/source/Debug/../Core/App/RTC/rtc.cpp.
+2214655 warnings and 73 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/RTC/rtc.cpp.
+[77/109] Processing file /workspace/source/Debug/../Core/App/Eeprom/eeprom.cpp.
+2248334 warnings and 74 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Eeprom/eeprom.cpp.
+[78/109] Processing file /workspace/source/Debug/../Core/App/Power/power.cpp.
+2302345 warnings and 75 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Power/power.cpp.
+[79/109] Processing file /workspace/source/Debug/../Core/App/NVData/nvdata.cpp.
+2353686 warnings and 76 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/NVData/nvdata.cpp.
+[80/109] Processing file /workspace/source/Debug/../Core/App/Logs/logs.cpp.
+2425535 warnings and 77 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Logs/logs.cpp.
+[81/109] Processing file /workspace/source/Debug/../Core/App/Lid/lid.cpp.
+2459492 warnings and 78 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Lid/lid.cpp.
+[82/109] Processing file /workspace/source/Debug/../Core/App/Level/level.cpp.
+2510937 warnings and 79 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Level/level.cpp.
+[83/109] Processing file /workspace/source/Debug/../Core/App/GPIO/gpio.cpp.
+2544595 warnings and 80 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/GPIO/gpio.cpp.
+[84/109] Processing file /workspace/source/Debug/../Core/App/Flash/flash.cpp.
+2578930 warnings and 81 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Flash/flash.cpp.
+[85/109] Processing file /workspace/source/Debug/../Core/App/FillControl/fill_control.cpp.
+2631402 warnings and 82 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/FillControl/fill_control.cpp.
+[86/109] Processing file /workspace/source/Debug/../Core/App/FillControl/States/FillContext.cpp.
+2682581 warnings and 83 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/FillControl/States/FillContext.cpp.
+[87/109] Processing file /workspace/source/Debug/../Core/App/FillControl/States/FillStates.cpp.
+2732732 warnings and 84 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/FillControl/States/FillStates.cpp.
+[88/109] Processing file /workspace/source/Debug/../Core/App/FillControl/States/FillState.cpp.
+2782548 warnings and 85 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/FillControl/States/FillState.cpp.
+[89/109] Processing file /workspace/source/Debug/../Core/App/FillControl/States/BypassState.cpp.
+2834460 warnings and 86 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/FillControl/States/BypassState.cpp.
+[90/109] Processing file /workspace/source/Debug/../Core/App/FillControl/States/FillingState.cpp.
+2886165 warnings and 87 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/FillControl/States/FillingState.cpp.
+[91/109] Processing file /workspace/source/Debug/../Core/App/FillControl/States/FogClearState.cpp.
+2936858 warnings and 88 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/FillControl/States/FogClearState.cpp.
+[92/109] Processing file /workspace/source/Debug/../Core/App/FillControl/States/IdleState.cpp.
+2996588 warnings and 89 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/FillControl/States/IdleState.cpp.
+[93/109] Processing file /workspace/source/Debug/../Core/App/FillControl/States/PauseFillState.cpp.
+3047281 warnings and 90 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/FillControl/States/PauseFillState.cpp.
+[94/109] Processing file /workspace/source/Debug/../Core/App/FillControl/States/RestrictedIdleState.cpp.
+3098932 warnings and 91 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/FillControl/States/RestrictedIdleState.cpp.
+[95/109] Processing file /workspace/source/Debug/../Core/App/FillControl/States/ManualFillState.cpp.
+3150332 warnings and 92 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/FillControl/States/ManualFillState.cpp.
+[96/109] Processing file /workspace/source/Debug/../Core/App/FillControl/States/InitialFillState.cpp.
+3202036 warnings and 93 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/FillControl/States/InitialFillState.cpp.
+[97/109] Processing file /workspace/source/Debug/../Core/App/Analog/adc.cpp.
+3257064 warnings and 94 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Analog/adc.cpp.
+[98/109] Processing file /workspace/source/Debug/../Core/App/Analog/adc_validator.cpp.
+3304600 warnings and 95 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Analog/adc_validator.cpp.
+[99/109] Processing file /workspace/source/Debug/../Core/App/Analog/pressure.cpp.
+3335690 warnings and 96 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Analog/pressure.cpp.
+[100/109] Processing file /workspace/source/Debug/../Core/App/Analog/resistor.cpp.
+3370410 warnings and 97 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Analog/resistor.cpp.
+[101/109] Processing file /workspace/source/Debug/../Core/App/Analog/rtd.cpp.
+3429321 warnings and 98 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Analog/rtd.cpp.
+[102/109] Processing file /workspace/source/Debug/../Core/App/Alarms/alarms.cpp.
+3487980 warnings and 99 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Alarms/alarms.cpp.
+[103/109] Processing file /workspace/source/Debug/../Core/App/Alarms/alarm_debug.cpp.
+3522725 warnings and 100 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Alarms/alarm_debug.cpp.
+[104/109] Processing file /workspace/source/Debug/../Core/App/app.cpp.
+3581727 warnings and 101 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/app.cpp.
+[105/109] Processing file /workspace/source/Debug/../Core/App/helpers.cpp.
+3633391 warnings and 102 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/helpers.cpp.
+[106/109] Processing file /workspace/source/Debug/../Core/App/bus_recover.cpp.
+3633414 warnings and 103 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/bus_recover.cpp.
+[107/109] Processing file /workspace/source/Debug/../Core/App/TurnTray/turn_tray.cpp.
+3667381 warnings and 104 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/TurnTray/turn_tray.cpp.
+[108/109] Processing file /workspace/source/Debug/../Core/App/Utilities/PasswordHandler.cpp.
+3672728 warnings and 105 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Utilities/PasswordHandler.cpp.
+[109/109] Processing file /workspace/source/Debug/../Core/App/Utilities/ConverterExtensions.cpp.
+3703864 warnings and 105 errors generated.
+Error while processing /workspace/source/Debug/../Core/App/Utilities/ConverterExtensions.cpp.
+Suppressed 3699320 warnings (3699320 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
+Found compiler error(s).
+make[1]: *** [Makefile:174: tidy] Error 1
+make: *** [makefile:75: tidy] Error 2
