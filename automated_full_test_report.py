@@ -7,6 +7,7 @@
 import glob
 import os
 import re
+from datetime import datetime 
 
 # Path to where all the files are located
 directory="test_files"
@@ -75,23 +76,51 @@ def main():
         return "Not ready for automated full test reporting"
 
     mux_result = mux_test_report(directory)
+    firmware_result = firmware_unit_test(directory)
+    rest_result = rest_api_test(directory)
+    iot_result = iot_test_report(directory)
+
+    mux_passed = mux_result["mux_ut_output"]["status"]
+    firmware_passed = firmware_result["ut_output"]["status"]
+    rest_passed = rest_result["rest_api"]["status"]
+    iot_passed = iot_result["iot_integration_report"]["status"]
+    total_passed = mux_passed and firmware_passed and rest_passed and iot_passed
+
+    DIVIDER = "-" * 53
+
+    now = datetime.now().strftime("%Y-%m-%d, %H:%M:%S")
+    print(f"\nTest Automation. Report Date: {now}")
+    print(DIVIDER)
+    print("Test results:")
+    print(DIVIDER)
+    print(f"MUX (Rust) Unit Test:  {'PASSED' if mux_passed else 'FAILED'}")
+    print(f"Firmware Unit Test:    {'PASSED' if firmware_passed else 'FAILED'}")
+    print(f"REST Api Test:         {'PASSED' if rest_passed else 'FAILED'}")
+    print(f"IoT Interface Test:    {'PASSED' if iot_passed else 'FAILED'}")
+    print()
+    print(f"Total results:         {'PASSED' if total_passed else 'FAILED'}")
+    print()
+    print(DIVIDER)
+    print("Test Summary Details:")
+    print(DIVIDER)
+
+    print("\nMUX (Rust) Unit Test:")
+    print(DIVIDER)
     print_report_result("mux_ut_output", mux_result["mux_ut_output"], "mux_ut_output has failing test cases")
     print_coverage_result("mux_coverage", mux_result["mux_coverage"])
 
-    # Firwmware Test Reports 
-    firmware_result = firmware_unit_test(directory)
+    print("\nFirmware Unit Test:")
+    print(DIVIDER)
     print_report_result("ut_output", firmware_result["ut_output"], "ut_output has failing test cases")
     print_firmware_coverage_result(firmware_result["coverage"])
 
-    # REST API Test Report 
-    rest_result = rest_api_test(directory)
+    print("\nREST Api Test:")
+    print(DIVIDER)
     print_report_result(rest_result["rest_api"]["filename"], rest_result["rest_api"], "rest_api has failing test cases")
 
-    # IOT Test Report 
-    iot_result = iot_test_report(directory)
-    print_report_result("iot_integration_report", iot_result["iot_integration_report"], "iot_integration_report has failing test cases")
-
-    
+    print("\nIoT Integration Test:")
+    print(DIVIDER)
+    print_report_result("iot_integration_report", iot_result["iot_integration_report"], "iot_integration_report has failing test cases")    
 
 
 # Each Test Report:
@@ -204,7 +233,6 @@ def mux_test_report(directory):
 # Firmware Test Report 
 # Files: coverage-report.txt & ut_output.txt
 # NOTES: Need to fix how they list all the files listed 
-# THIS IS STILL NOT FINISHED, need to add more past_text lines for the function 
 def firmware_unit_test(directory):
     # --- ut_output.txt ---
     filepath = os.path.join(directory, "ut_output.txt")
@@ -233,9 +261,9 @@ def firmware_unit_test(directory):
     with open(cov_filepath, "r") as f:
         for line in f:
             stripped = line.strip()
-            if "Files with greater than 100 SLOC Coverage:" in stripped:
+            if "List of top 100 files that need exception reports" in stripped:
                 current_section = "top100"
-            elif "Coverage in files sorted by most changed" in stripped:
+            elif "Most changed files that need exception " in stripped:
                 current_section = "most_changed"
             elif stripped == "":
                 current_section = None
@@ -277,7 +305,7 @@ def rest_api_test(directory):
                 proof_line = match.group(0)
                 if failures == 0:
                     passed = True 
-    return {"rest_api": {"status": passed, "proof": proof_line, "line": None, "filename": "report-YYYY-MM-DD"}}
+    return {"rest_api": {"status": passed, "proof": proof_line, "line": None, "filename": filename}}
 
 # IOT Interface Test Report
 # Files: iot_integration_report.txt
@@ -292,9 +320,11 @@ def iot_test_report(directory):
         for i, line in enumerate(f, start=1):
             if "test result: ok." in line and "; 0 failed;" in line:
                 passed = True 
-                proof_line = line.strip()
+                match = re.search(r"\d+ passed; \d+ failed;", line)
+                if match:
+                    proof_line = match.group(0)
                 line_number = i 
-                break 
+                break
     return {"iot_integration_report": {"status": passed, "proof": proof_line, "line": line_number}}
 
 
@@ -304,7 +334,7 @@ def print_report_result(report_name, result, fail_message):
     if result["proof"]:
         print(f"{result['proof']}")
     if result["status"]:
-        print("All test Passed")
+        print("All tests Passed")
     else:
         print(f"There is a test Failure, {fail_message}")
 
@@ -320,10 +350,14 @@ def print_coverage_result(report_name, result):
 # Helper function for the firmware coverage:
 def print_firmware_coverage_result(result):
     print("\ncoverage-report:")
-    print("List of top 100 files that need to be included in the exception report:")
+    print("\n" + "=" * 55)
+    print("List of top 100 files that need exception reports")
+    print("=" * 55)
     for f in result["top100_files"]:
         print(f)
-    print("\nMost changed files that need to be included in the exception report:")
+    print("\n" + "=" * 55)
+    print("Most changed files that need exception report")
+    print("=" * 55)
     for f in result["most_changed_files"]:
         print(f)
 
