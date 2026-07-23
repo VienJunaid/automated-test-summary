@@ -7,10 +7,12 @@
 import glob
 import os
 import re
+import sys 
 from datetime import datetime 
 
 # Path to where all the files are located
-directory="test_files"
+directory=""
+
 
 # comment out based on what you are testing
 full_files = [
@@ -23,6 +25,18 @@ full_files = [
     "iot_integration_report.txt"
 ]
 
+class Tee:
+    def __init__(self, file):
+        self.file = file
+        self.stdout = sys.stdout 
+
+    def write(self, data):
+        self.file.write(data)
+        self.stdout.write(data)
+
+    def flush(self):
+        self.file.flush()
+        self.stdout.flush()
 
 
 # Takes directory and registry 
@@ -56,8 +70,8 @@ def preflight_checks(found, missing, full_files):
         print("All files accounted for. Ready for parsing.")
         return True
     else: 
-        print(f"{len(missing)} files(s) missing. Fix before running full report.")
-        return False 
+        print(f"{len(missing)} files(s) missing. Continuing with available files.")
+        return True 
     
 
 # Main Function
@@ -70,15 +84,32 @@ def preflight_checks(found, missing, full_files):
 #   (Some of these functions will work on 2 files and will return a single boolean and text report from both those file (but its combined into one))
 # - Print out a .txt file that is the automated_full_test_report with date and build number 
 def main():
+    now_str = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    out_file = open(f"automated_full_test_report_{now_str}.txt", "w")
+    sys.stdout = Tee(out_file) 
+
     found, missing = locate_files(directory, full_files)
     ready = preflight_checks(found, missing, full_files)
     if not ready:
         return "Not ready for automated full test reporting"
 
-    mux_result = mux_test_report(directory)
-    firmware_result = firmware_unit_test(directory)
-    rest_result = rest_api_test(directory)
-    iot_result = iot_test_report(directory)
+    mux_result = {"mux_ut_output": {"status": False, "proof": None, "line": None, "missing": True},
+                  "mux_coverage": {"status": False, "proof": None, "line": None, "percentage": None, "missing": True}}
+    if "mux_ut_output.txt" in found and "mux-coverage-report.txt" in found:
+        mux_result = mux_test_report(directory)
+
+    firmware_result = {"ut_output": {"status": False, "proof": None, "line": None, "missing": True},
+                   "coverage": {"top100_files": [], "most_changed_files": []}}
+    if "coverage-report.txt" in found and "ut_output.txt" in found:
+        firmware_result = firmware_unit_test(directory)
+
+    rest_result = {"rest_api": {"status": False, "proof": None, "line": None, "missing": True, "filename": "report-YYYY-MM-DD"}}
+    if any("report-" in f for f in found):
+        rest_result = rest_api_test(directory)
+
+    iot_result = {"iot_integration_report": {"status": False, "proof": None, "line": None, "missing": True}}
+    if "iot_integration_report.txt" in found:
+        iot_result = iot_test_report(directory)
 
     mux_passed = mux_result["mux_ut_output"]["status"]
     firmware_passed = firmware_result["ut_output"]["status"]
@@ -106,22 +137,53 @@ def main():
 
     print("\nMUX (Rust) Unit Test:")
     print(DIVIDER)
-    print_report_result("mux_ut_output", mux_result["mux_ut_output"], "mux_ut_output has failing test cases")
-    print_coverage_result("mux_coverage", mux_result["mux_coverage"])
-
+    
+    # MUX Reports 
+    if mux_result["mux_ut_output"].get("missing"):
+        print("mux_ut_output results:")
+        print("There is no such file")
+    else:
+        print_report_result("mux_ut_output", mux_result["mux_ut_output"], "mux_ut_output has failing test cases")
+    
+    if mux_result["mux_coverage"].get("missing"):
+        print("mux_coverage-report:")
+        print("There is no such file")
+    else: 
+        print_coverage_result("mux_coverage", mux_result["mux_coverage"])
+    print("\n")
+    # Firmware Reports 
     print("\nFirmware Unit Test:")
     print(DIVIDER)
-    print_report_result("ut_output", firmware_result["ut_output"], "ut_output has failing test cases")
-    print_firmware_coverage_result(firmware_result["coverage"])
-
+    
+    if firmware_result["ut_output"].get("missing"):
+        print("ut_output results:")
+        print("There is no such file")
+    else: 
+        print_report_result("ut_output", firmware_result["ut_output"], "ut_output has failing test cases")
+        print_firmware_coverage_result(firmware_result["coverage"])
+    
+    print("\n")
+    # REST API Reports 
     print("\nREST Api Test:")
     print(DIVIDER)
-    print_report_result(rest_result["rest_api"]["filename"], rest_result["rest_api"], "rest_api has failing test cases")
-
+    if rest_result["rest_api"].get("missing"):
+        print("report-YYYY-MM-DD results:")
+        print("There is no such file")
+    else: 
+        print_report_result(rest_result["rest_api"]["filename"], rest_result["rest_api"], "rest_api has failing test cases")
+    
+    print("\n")
+    # IOT Integration Reports 
     print("\nIoT Integration Test:")
     print(DIVIDER)
-    print_report_result("iot_integration_report", iot_result["iot_integration_report"], "iot_integration_report has failing test cases")    
-
+    if iot_result["iot_integration_report"].get("missing"):
+        print("iot_integration_report:")
+        print("There is no such file")
+    else: 
+        print_report_result("iot_integration_report", iot_result["iot_integration_report"], "iot_integration_report has failing test cases")    
+    
+    sys.stdout = sys.stdout.stdout 
+    out_file.close() 
 
 # Each Test Report:
 # - Open the file(s)
@@ -133,6 +195,8 @@ def main():
 def gui_test_reports(directory):
     filepath = os.path.join(directory, "gui_test_out.txt")
     pass_text = "passed text case right here"
+
+
 
     passed = False
     proof_line = None
@@ -179,6 +243,10 @@ def gui_test_reports(directory):
 def mux_test_report(directory):
     # --- mux_ut_output.txt --- 
     filepath = os.path.join(directory, "mux_ut_output.txt")
+
+    if filepath == None:
+        return "There is no such file mux_ut_output.txt"
+
     pass_text1 = "test result: ok."
     pass_text2 = "; 0 failed;"
     pass_text3 = "; 0 ignored;"
@@ -283,7 +351,6 @@ def firmware_unit_test(directory):
 
 # Rest API Test Report
 # Files: report-YYYY-MM-DD.txt
-# Ask JIM if we should implement a way for the text to give us back the very value we need. 
 def rest_api_test(directory):
     files = glob.glob(os.path.join(directory, "report-*.txt"))
     if not files:
@@ -330,7 +397,7 @@ def iot_test_report(directory):
 
 # Helper function for test reports 
 def print_report_result(report_name, result, fail_message):
-    print(f"\n{report_name} results:")
+    print(f"{report_name} results:")
     if result["proof"]:
         print(f"{result['proof']}")
     if result["status"]:
